@@ -9,11 +9,9 @@ def get_column(file_name, query_column, query_value, *, result_column = 1):
             parts = line.strip().split(',')
 
             # check if the value at the current position in query_column matches the query_value
-            if len(parts) > query_column and parts[query_column] == query_value:
-                # check if the result_column position exists in the array
-                if len(parts) > result_column:
-                    # add the value in the result_column position to the result_values list
-                    result_values.append(parts[result_column])
+            if parts[query_column] == query_value:
+                # add the value in the result_column position to the result_values list
+                result_values.append(parts[result_column])
 
     # Return the list of result values
     return result_values
