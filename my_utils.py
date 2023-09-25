@@ -1,4 +1,20 @@
 def get_column(file_name, query_column, query_value, *, result_column = 1):
+    
+    """
+    Retrieve values from a specified column in a CSV file based on a query.
+
+    Parameters:
+    - file_name (str): A path to a CSV file to read in.
+    - query_column (int): Index of the column in the CSV to query.
+    - query_value (str): The value to match in query_column.
+    - result_column (int, optional): Index of the column to retrieve values from.
+      Defaults to the second column (index 1).
+
+    Returns:
+    - list: A list of values from the specified result_column that match the query.
+    
+    """
+    
     # make an empty list to store results
     result_values = []
 
