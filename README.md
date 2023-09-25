@@ -3,7 +3,9 @@
 
 my_utils contains a function called get_columns, which takes as input a csv file, the index of a column to query, a value to look for in that column, and optionally as a keyword argument the index of a column to return from as the result.
 
-print_fires.py uses get_columns to print all the forest fires that happened in the USA from a CSV file containing various data.
+print_fires.py uses get_columns to print all the forest fires that happened in the USA from a CSV file containing various data. print_fires takes arguments for get_columns from the command line.
+usage:
+python print_fires.py -a [COUNTRY NAME] -b [QUERY COLUMN] -c [RESULT COLUMN] -d [FILEPATH]
 
 run.sh runs print_fires.py.
 
