@@ -48,27 +48,28 @@ def get_column(file_name, query_column, query_value, *, result_column=1):
                               "be coerced to integer.")
                     except IndexError:
                         print("result_column index is out of bounds.")
-                        sys.exit(1)
+                        return None
             except IndexError:
                 print("query_column index is out of bounds.")
-                sys.exit(1)
+                return None
 
     # Return the list of result values
     return result_values
 
 
 def mean(a):
-    
+
     """
     Calculate the mean of a list of integers.
 
     Args:
-    a (list of integers): The list of numbers for which the mean is to be calculated.
+    a (list of integers): The list of numbers for
+        which the mean is to be calculated.
 
     Returns:
     float: The mean of the input list 'a'.
     """
-    
+
     if len(a) == 0:
         return None
     num_sum = 0
@@ -88,7 +89,8 @@ def median(a):
     Calculate the median of a list of integers.
 
     Args:
-    a (list of integers): The list of numbers for which the median is to be calculated.
+    a (list of integers): The list of numbers for
+        which the median is to be calculated.
 
     Returns:
     float: The median of the input list 'a'.
@@ -110,7 +112,8 @@ def median(a):
     if len(sorted_input) % 2 == 0:
         hi_med_index = int(len(sorted_input)/2)
         low_med_index = hi_med_index-1
-        output = mean([sorted_input[hi_med_index], sorted_input[low_med_index]])
+        output = mean([sorted_input[hi_med_index],
+                       sorted_input[low_med_index]])
     else:
         med_index = int(len(sorted_input)/2)
         output = sorted_input[med_index]
@@ -118,19 +121,20 @@ def median(a):
 
 
 def standard_deviation(a):
-    
+
     """
     Calculate the standard deviation of an array of integers.
 
     Args:
-    a (list of integers): The list of integers for which the standard deviation is to be calculated.
+    a (list of integers): The list of integers for
+        which the standard deviation is to be calculated.
 
     Returns:
     float: The standard deviation of the input array.
     """
-    
+
     # check if input is long enough
-    if len(arr) < 2:
+    if len(a) < 2:
         print("Standard deviation requires at least two data points")
         return None
     # check if input has the right type
@@ -139,19 +143,16 @@ def standard_deviation(a):
             print("Input must be a list of integers")
             return None
 
-    # calculate the mean of the array
-    mean = mean(a)
+    # calculate the mean of the numbers
+    mean = sum(a) / len(a)
 
-    # calculate the squared differences from the mean    
-    squared_diffs = 0
-    for x in a:
-        squared_diffs += ((x-mean) ** 2)
-    
-    # divide by population size to get variance
-    variance = squared_diffs/len(a)
+    # calculate the squared differences from the mean
+    squared_diff_sum = sum((x - mean) ** 2 for x in a)
 
-    # standard deviation is the square root of the variance
+    # calculate the variance
+    variance = squared_diff_sum / (len(a) - 1)
+
+    # calculate the standard deviation
     std_dev = variance ** 0.5
 
     return std_dev
-

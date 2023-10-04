@@ -1,0 +1,47 @@
+[33mcommit c5f3f7a139807aa183c46eed4a72d90249765a5e[m[33m ([m[1;36mHEAD -> [m[1;32mfix_get_col[m[33m, [m[1;31morigin/fix_get_col[m[33m)[m
+Author: Luis X. de Pablo <luisxdepablo@gmail.com>
+Date:   Fri Sep 8 21:26:55 2023 +0000
+
+    updated README to reflect changes
+
+[33mcommit d7a7648eef903265d2c47490596a1d84d833036e[m
+Author: Luis X. de Pablo <luisxdepablo@gmail.com>
+Date:   Fri Sep 8 21:23:59 2023 +0000
+
+    added run.sh script to run print_fires.py
+
+[33mcommit d057418880e052914798217203069fd0768e439c[m
+Author: Luis X. de Pablo <luisxdepablo@gmail.com>
+Date:   Fri Sep 8 21:21:55 2023 +0000
+
+    updated get_column to use keyword only argument for results column and updated print_fires to use new get_column syntax
+
+[33mcommit c0ab6fa5072a31fb3733ef94628155c0b79fc3c5[m
+Author: Luis X. de Pablo <luisxdepablo@gmail.com>
+Date:   Fri Sep 8 21:12:32 2023 +0000
+
+    added default value for results column to get_column
+
+[33mcommit 40deb0b336310e35fc8a2228f62287379ce35523[m
+Author: Luis X. de Pablo <luisxdepablo@gmail.com>
+Date:   Fri Sep 8 21:09:36 2023 +0000
+
+    fixed print_fires to properly get fires for USA
+
+[33mcommit add9059566f41cf5934a200e140eab345c8f430d[m
+Author: Luis X. de Pablo <luisxdepablo@gmail.com>
+Date:   Fri Sep 8 21:07:27 2023 +0000
+
+    wrote get_column function
+
+[33mcommit 5129038d16a9fd7435f8bf03aa72b30becd7b0f9[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: github-classroom[bot] <66690702+github-classroom[bot]@users.noreply.github.com>
+Date:   Fri Sep 8 19:53:25 2023 +0000
+
+    Add assignment deadline url
+
+[33mcommit 3e7b19fe3b6fa907d1e6a396d7ea1dd5dac27aed[m
+Author: github-classroom[bot] <66690702+github-classroom[bot]@users.noreply.github.com>
+Date:   Fri Sep 8 19:53:23 2023 +0000
+
+    Initial commit
