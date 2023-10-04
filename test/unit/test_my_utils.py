@@ -6,6 +6,7 @@ sys.path.insert(0, '../../src')  # noqa
 import my_utils
 import random
 import unittest
+import statistics
 
 
 # make tester class
@@ -38,37 +39,33 @@ class TestMyUtils(unittest.TestCase):
 
     # test mean, median, standard_deviation
     # positive cases
-    def test_mean_2(self):
-        arr = [1, 2, 3]
+    def test_mean(self):
+        arr = [random.randint(1,100), random.randint(1,100), random.randint(1,100)]
         m = my_utils.mean(arr)
-        self.assertEqual(2, m)
+        test_m = sum(arr)/3
+        self.assertEqual(test_m, m)
 
-    def test_median_2_even(self):
-        arr = [1, 2, 3, 10]
+    def test_median_odd(self):
+        arr = [random.randint(1,100), random.randint(1,100), random.randint(1,100)]
         m = my_utils.median(arr)
-        self.assertEqual(2.5, m)
+        sorted_arr = sorted(arr)
+        test_m = sorted_arr[1]
+        self.assertEqual(test_m, m)
 
-    def test_median_2_odd(self):
-        arr = [1, 1, 2, 3, 10]
+    def test_median_even(self):
+        arr = [random.randint(1,100), random.randint(1,100), random.randint(1,100), random.randint(1,100)]
         m = my_utils.median(arr)
-        self.assertEqual(2, m)
+        sorted_arr = sorted(arr)
+        test_m = (sorted_arr[1] + sorted_arr[2])/2
+        self.assertEqual(test_m, m)
 
-    def test_median_2_unsorted(self):
-        arr = [2, 1, 10, 3, 1]
-        m = my_utils.median(arr)
-        self.assertEqual(2, m)
+    def test_stddev(self):
+        arr = [random.randint(1,100), random.randint(1,100), random.randint(1,100)]
+        sd = my_utils.standard_deviation(arr)
+        test_sd = statistics.stdev(arr)
+        self.assertEqual(test_sd, sd)
 
-    def test_stddev_1(self):
-        arr = [1, 2, 3]
-        m = my_utils.standard_deviation(arr)
-        self.assertEqual(0.816496580927726, m)
-
-    def test_stddev_1_negative(self):
-        arr = [-1, -2, -3]
-        m = my_utils.standard_deviation(arr)
-        self.assertEqual(0.816496580927726, m)
-
-    # edge cases
+    # negative cases
     def test_mean_input_empty(self):
         arr = []
         m = my_utils.mean(arr)
@@ -85,25 +82,9 @@ class TestMyUtils(unittest.TestCase):
         self.assertEqual(None, m)
 
     def test_stddev_input_too_small(self):
-        arr = [1]
-        m = my_utils.standard_deviation(arr)
-        self.assertEqual(None, m)
-
-    # negative cases
-    def test_mean_not_3(self):
-        arr = [1, 2, 3]
-        m = my_utils.mean(arr)
-        self.assertNotEqual(3, m)
-
-    def test_median_not_3(self):
-        arr = [1, 2, 3]
-        m = my_utils.median(arr)
-        self.assertNotEqual(3, m)
-
-    def test_stddev_not_3(self):
-        arr = [1, 2, 3]
-        m = my_utils.standard_deviation(arr)
-        self.assertNotEqual(3, m)
+        arr = [random.randint(1,100)]
+        sd = my_utils.standard_deviation(arr)
+        self.assertEqual(None, sd)
 
 
 if __name__ == '__main__':

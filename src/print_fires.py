@@ -23,6 +23,12 @@ parser.add_argument("-d",
                     "--file_name",
                     type=str,
                     help="Name of your file to read in (string)")
+parser.add_argument("-e",
+                    "--summary_fun",
+                    type=str,
+                    default=None,
+                    help="Name of stats function to pass return data to."
+                    "Can be mean, median, or standard_deviation")
 
 # get commmand line input
 args = parser.parse_args()
@@ -45,9 +51,25 @@ except FileNotFoundError:
     print("No file was found at path ", file_name, ".")
     sys.exit(1)
 
+# if a summary function was provided, run it on data
+if args.summary_fun != None:
+    summary_fun = args.summary_fun
+    if summary_fun == "mean":
+        fires_sum = my_utils.mean(fires)
+    elif summary_fun == "median":
+        fires_sum = my_utils.median(fires)
+    elif summary_fun == "standard_deviation":
+        fires_sum = my_utils.standard_deviation(fires)
+    else:
+        print("Summary function must be either 'mean',"
+        "'median', or 'standard_deviation")
+        sys.exit(1)
 
 def main():
-    print(fires)
+    if args.summary_fun != None:
+        print(fires_sum)
+    else:
+        print(fires)
 
 
 if __name__ == '__main__':
