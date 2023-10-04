@@ -8,6 +8,7 @@ import random
 import unittest
 import statistics
 import csv
+import os
 
 
 # make tester class
@@ -34,36 +35,45 @@ class TestMyUtils(unittest.TestCase):
 
                 # Write the row to the CSV file
                 file.write(f"{string_value},{float_value1},{float_value2}\n")
-       
-    def TearDown(self):
+
+    def tearDown(self):
         os.remove("test_data.csv")
-        
+
     # test mean, median, standard_deviation
     # positive cases
     def test_mean(self):
-        arr = [random.randint(1,100), random.randint(1,100), random.randint(1,100)]
+        arr = [random.randint(1, 100),
+               random.randint(1, 100),
+               random.randint(1, 100)]
         m = my_utils.mean(arr)
         test_m = sum(arr)/3
         self.assertEqual(test_m, m)
 
     def test_median_odd(self):
-        arr = [random.randint(1,100), random.randint(1,100), random.randint(1,100)]
+        arr = [random.randint(1, 100),
+               random.randint(1, 100),
+               random.randint(1, 100)]
         m = my_utils.median(arr)
         sorted_arr = sorted(arr)
         test_m = sorted_arr[1]
         self.assertEqual(test_m, m)
 
     def test_median_even(self):
-        arr = [random.randint(1,100), random.randint(1,100), random.randint(1,100), random.randint(1,100)]
+        arr = [random.randint(1, 100),
+               random.randint(1, 100),
+               random.randint(1, 100),
+               random.randint(1, 100)]
         m = my_utils.median(arr)
         sorted_arr = sorted(arr)
         test_m = (sorted_arr[1] + sorted_arr[2])/2
         self.assertEqual(test_m, m)
 
     def test_stddev(self):
-        arr = [random.randint(1,100), random.randint(1,100), random.randint(1,100)]
-        sd = round(my_utils.standard_deviation(arr),3)
-        test_sd = round(statistics.stdev(arr),3)
+        arr = [random.randint(1, 100),
+               random.randint(1, 100),
+               random.randint(1, 100)]
+        sd = round(my_utils.standard_deviation(arr), 3)
+        test_sd = round(statistics.stdev(arr), 3)
         self.assertEqual(test_sd, sd)
 
     # negative cases
@@ -83,15 +93,18 @@ class TestMyUtils(unittest.TestCase):
         self.assertEqual(None, m)
 
     def test_stddev_input_too_small(self):
-        arr = [random.randint(1,100)]
+        arr = [random.randint(1, 100)]
         sd = my_utils.standard_deviation(arr)
         self.assertEqual(None, sd)
-        
+
     # test get_columns
     # positive case
     def test_get_cols(self):
-        data = my_utils.get_column("test_data.csv", 0, "country 1", result_column=1)
-        
+        data = my_utils.get_column("test_data.csv",
+                                   0,
+                                   "country 1",
+                                   result_column=1)
+
         query_value = "country 1"
         # initialize a list to store matching values from Column 1
         matching_values = []
@@ -103,15 +116,19 @@ class TestMyUtils(unittest.TestCase):
             # Iterate through each row in the CSV
             for row in csv_reader:
                 if len(row) >= 2 and row[0] == query_value:
-                    # If the value in Column 0 matches the query, add the value from Column 1 to the list
+                    # If the value in Column 0 matches the query,
+                    # add the value from Column 1 to the list
                     matching_values.append(int(float(row[1])))
-        
+
         self.assertEqual(matching_values, data)
-    
+
     def test_get_cols_out_of_bounds(self):
-        data = my_utils.get_column("test_data.csv", 0, "country 1", result_column=100)
+        data = my_utils.get_column("test_data.csv",
+                                   0,
+                                   "country 1",
+                                   result_column=100)
         self.assertEqual(None, data)
-        
+
 
 if __name__ == '__main__':
     unittest.main()

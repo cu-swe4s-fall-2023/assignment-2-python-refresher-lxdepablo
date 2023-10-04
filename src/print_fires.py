@@ -52,7 +52,7 @@ except FileNotFoundError:
     sys.exit(1)
 
 # if a summary function was provided, run it on data
-if args.summary_fun != None:
+if args.summary_fun is not None:
     summary_fun = args.summary_fun
     if summary_fun == "mean":
         fires_sum = my_utils.mean(fires)
@@ -62,11 +62,12 @@ if args.summary_fun != None:
         fires_sum = my_utils.standard_deviation(fires)
     else:
         print("Summary function must be either 'mean',"
-        "'median', or 'standard_deviation")
+              "'median', or 'standard_deviation")
         sys.exit(1)
 
+
 def main():
-    if args.summary_fun != None:
+    if args.summary_fun is not None:
         print(fires_sum)
     else:
         print(fires)
