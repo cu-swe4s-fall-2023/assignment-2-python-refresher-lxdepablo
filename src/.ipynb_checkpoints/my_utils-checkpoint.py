@@ -48,10 +48,10 @@ def get_column(file_name, query_column, query_value, *, result_column=1):
                               "be coerced to integer.")
                     except IndexError:
                         print("result_column index is out of bounds.")
-                        sys.exit(1)
+                        return None
             except IndexError:
                 print("query_column index is out of bounds.")
-                sys.exit(1)
+                return None
 
     # Return the list of result values
     return result_values
@@ -143,18 +143,16 @@ def standard_deviation(a):
             print("Input must be a list of integers")
             return None
 
-    # calculate the mean of the array
-    m = mean(a)
+    # calculate the mean of the numbers
+    mean = sum(a) / len(a)
 
     # calculate the squared differences from the mean
-    squared_diffs = 0
-    for x in a:
-        squared_diffs += ((x-m) ** 2)
+    squared_diff_sum = sum((x - mean) ** 2 for x in a)
 
-    # divide by population size to get variance
-    variance = squared_diffs/len(a)
+    # calculate the variance
+    variance = squared_diff_sum / (len(a) - 1)
 
-    # standard deviation is the square root of the variance
+    # calculate the standard deviation
     std_dev = variance ** 0.5
 
     return std_dev
