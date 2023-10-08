@@ -23,6 +23,6 @@ jobs:
         steps: 
             - uses: actions/checkout@v2
             - run:
-                cd test/func
+                cd ../func
                 bash test_print_firest.sh
         
