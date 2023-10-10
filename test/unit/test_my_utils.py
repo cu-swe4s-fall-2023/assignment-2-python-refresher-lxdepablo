@@ -39,7 +39,7 @@ class TestMyUtils(unittest.TestCase):
     def tearDown(self):
         os.remove("test_data.csv")
 
-    # test mean, median, standard_deviation
+    # test mean, median, standard_deviation functions
     # positive cases
     def test_mean(self):
         arr = [random.randint(1, 100),
