@@ -80,7 +80,7 @@ def mean(a):
             print("Input must be a list of integers")
             return None
     output = num_sum/len(a)
-    return(output)
+    return output
 
 
 def median(a):
@@ -101,7 +101,7 @@ def median(a):
         return None
     # check if input has the right type
     for number in a:
-        if type(number) != int:
+        if type(number) is not int:
             print("Input must be a list of integers")
             return None
     try:
@@ -139,7 +139,7 @@ def standard_deviation(a):
         return None
     # check if input has the right type
     for number in a:
-        if type(number) != int:
+        if type(number) is not int:
             print("Input must be a list of integers")
             return None
 

@@ -25,4 +25,15 @@ jobs:
             - run: |
                 cd test/func
                 bash test_print_fires.sh
+                
+    run_stylechecks:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                shell: bash -l {0}
+        steps:
+            - uses: actions/checkout@v2      
+            - run: |
+                pip install pycodestyle
+                pycodestyle $(git ls-files "*.py")
         
