@@ -32,10 +32,8 @@ jobs:
             run:
                 shell: bash -l {0}
         steps:
-            - uses: actions/checkout@v2
-            - uses: conda-incubator/setup-miniconda@v2
-              with:
-                  activate-environment: swe4s
-                  environment-file: environment.yml       
-            - run: pycodestyle $(git ls-files "*.py")
+            - uses: actions/checkout@v2      
+            - run: |
+                pip install pycodestyle
+                pycodestyle $(git ls-files "*.py")
         
