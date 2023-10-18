@@ -1,0 +1,14 @@
+rule download_data:
+    # no input
+    output:
+        '../data/Agrofood_co2_emission.csv'
+    shell:
+        'wget -O {output} "https://docs.google.com/uc?export=download&id=1Wytf3ryf9EtOwaloms8HEzLG0yjtRqxr"'
+        
+rule plot_savannah_fires:
+    input:
+        '../data/Agrofood_co2_emission.csv'
+    output:
+        'test2.png'
+    shell:
+        'python savannah_fires_year.py {input} {output} "Albania" "Albanian Savannah Fires" "Year" "Savannah Fires"'
