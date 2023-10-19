@@ -118,7 +118,7 @@ class TestMyUtils(unittest.TestCase):
                 if len(row) >= 2 and row[0] == query_value:
                     # If the value in Column 0 matches the query,
                     # add the value from Column 1 to the list
-                    matching_values.append(int(float(row[1])))
+                    matching_values.append(float(row[1]))
 
         self.assertEqual(matching_values, data)
 
