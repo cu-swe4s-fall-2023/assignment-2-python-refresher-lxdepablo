@@ -99,13 +99,13 @@ def median(a):
         return None
     # check if input has the right type
     for number in a:
-        if type(number) is not int:
-            print("Input must be a list of integers")
+        if type(number) is not float:
+            print("Input must be a list of floats")
             return None
     try:
         sorted_input = sorted(a)
     except TypeError:
-        print("Input must be a list of integers")
+        print("Input must be a list of floats")
         return None
     if len(sorted_input) % 2 == 0:
         hi_med_index = int(len(sorted_input)/2)
@@ -137,8 +137,8 @@ def standard_deviation(a):
         return None
     # check if input has the right type
     for number in a:
-        if type(number) is not int:
-            print("Input must be a list of integers")
+        if type(number) is not float:
+            print("Input must be a list of floats")
             return None
 
     # calculate the mean of the numbers
