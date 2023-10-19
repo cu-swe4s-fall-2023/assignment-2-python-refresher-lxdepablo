@@ -42,36 +42,36 @@ class TestMyUtils(unittest.TestCase):
     # test mean, median, standard_deviation functions
     # positive cases
     def test_mean(self):
-        arr = [random.randint(1, 100),
-               random.randint(1, 100),
-               random.randint(1, 100)]
+        arr = [random.uniform(1, 100),
+               random.uniform(1, 100),
+               random.uniform(1, 100)]
         m = my_utils.mean(arr)
         test_m = sum(arr)/3
         self.assertEqual(test_m, m)
 
     def test_median_odd(self):
-        arr = [random.randint(1, 100),
-               random.randint(1, 100),
-               random.randint(1, 100)]
+        arr = [random.uniform(1, 100),
+               random.uniform(1, 100),
+               random.uniform(1, 100)]
         m = my_utils.median(arr)
         sorted_arr = sorted(arr)
         test_m = sorted_arr[1]
         self.assertEqual(test_m, m)
 
     def test_median_even(self):
-        arr = [random.randint(1, 100),
-               random.randint(1, 100),
-               random.randint(1, 100),
-               random.randint(1, 100)]
+        arr = [random.uniform(1, 100),
+               random.uniform(1, 100),
+               random.uniform(1, 100),
+               random.uniform(1, 100)]
         m = my_utils.median(arr)
         sorted_arr = sorted(arr)
         test_m = (sorted_arr[1] + sorted_arr[2])/2
         self.assertEqual(test_m, m)
 
     def test_stddev(self):
-        arr = [random.randint(1, 100),
-               random.randint(1, 100),
-               random.randint(1, 100)]
+        arr = [random.uniform(1, 100),
+               random.uniform(1, 100),
+               random.uniform(1, 100)]
         sd = round(my_utils.standard_deviation(arr), 3)
         test_sd = round(statistics.stdev(arr), 3)
         self.assertEqual(test_sd, sd)
@@ -93,7 +93,7 @@ class TestMyUtils(unittest.TestCase):
         self.assertEqual(None, m)
 
     def test_stddev_input_too_small(self):
-        arr = [random.randint(1, 100)]
+        arr = [random.uniform(1, 100)]
         sd = my_utils.standard_deviation(arr)
         self.assertEqual(None, sd)
 
