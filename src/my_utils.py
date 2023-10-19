@@ -38,8 +38,6 @@ def get_column(file_name, query_column, query_value, *, result_column=1):
                         result = parts[result_column]
                         # cast to float
                         result = float(result)
-                        # cast to int
-                        result = int(result)
                         # add the value in the result_column position to the
                         # result_values list
                         result_values.append(result)

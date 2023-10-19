@@ -9,3 +9,5 @@ python print_fires.py -a [COUNTRY NAME] -b [QUERY COLUMN] -c [RESULT COLUMN] -d 
 
 run.sh runs print_fires.py.
 
+Presentation:
+I was interested in the relationship between increasing temperatures and CO2 emissions from forest fires. I thought that as temperatures increased, the frequency of forest fires and their associated CO2 emissions would also increase. However, although average temperature has a positive relationship with the year, there is no relationship between CO2 emissions due to forest fires and either year or temperature.
