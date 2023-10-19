@@ -1,6 +1,6 @@
 rule all:
     input:
-        'forfires_year.png', 'forfires_temp.png', 'temp_year.png'
+        '../data/forfires_year.png', '../data/forfires_temp.png', '../data/temp_year.png'
         
 rule download_data:
     output:
@@ -12,7 +12,7 @@ rule plot_forfires_year:
     input:
         '../data/Agrofood_co2_emission.csv'
     output:
-        'forfires_year.png'
+        '../data/forfires_year.png'
     shell:
         'python plot_forfires_year.py {input} {output} "Albania" "Albanian Forest Fires" "Year" "CO2 Emissions"'
         
@@ -20,7 +20,7 @@ rule plot_forfires_temp:
     input:
         '../data/Agrofood_co2_emission.csv'
     output:
-        'forfires_temp.png'
+        '../data/forfires_temp.png'
     shell:
         'python plot_forfires_temp.py {input} {output} "Albania" "Albanian Forest Fires" "Average Temperature" "CO2 Emissions"'
         
@@ -28,6 +28,6 @@ rule plot_temp_year:
     input:
         '../data/Agrofood_co2_emission.csv'
     output:
-        'temp_year.png'
+        '../data/temp_year.png'
     shell:
         'python plot_temp_year.py {input} {output} "Albania" "Albanian Temperatures" "Year" "Average Temperature"'
